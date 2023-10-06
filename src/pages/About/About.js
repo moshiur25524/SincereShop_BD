@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   const location = useLocation();
@@ -10,6 +11,9 @@ const About = () => {
   }, [location]);
   return (
     <div className="max-w-container mx-auto px-4">
+      <Helmet>
+        <title>SincereShop BD | About</title>
+      </Helmet>
       <Breadcrumbs title="About" prevLocation={prevLocation} />
       <div className="pb-10">
         <h1 className="max-w-[600px] text-base text-lightText mb-2">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const location = useLocation();
@@ -65,6 +66,9 @@ const Contact = () => {
 
   return (
     <div className="max-w-container mx-auto px-4">
+      <Helmet>
+        <title>SincereShop BD | Contact</title>
+      </Helmet>
       <Breadcrumbs title="Contact" prevLocation={prevLocation} />
       {successMsg ? (
         <p className="pb-20 w-96 font-medium text-green-500">{successMsg}</p>

@@ -6,6 +6,7 @@ import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 import { resetCart } from "../../redux/orebiSlice";
 import { emptyCart } from "../../assets/images/index";
 import ItemCard from "./ItemCard";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ const Cart = () => {
   }, [totalAmt]);
   return (
     <div className="max-w-container mx-auto px-4">
+      <Helmet>
+        <title>SincereShop BD | Cart</title>
+      </Helmet>
       <Breadcrumbs title="Cart" />
       {products.length > 0 ? (
         <div className="pb-20">
