@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from "react";
 import { BsGridFill } from "react-icons/bs";
 import { ImList } from "react-icons/im";
 import { GoTriangleDown } from "react-icons/go";
+import useViewActive from "../../../CustomHook/ViewActive/useViewActive";
 
 const ProductBanner = ({ itemsPerPageFromBanner }) => {
   //   const [selected, setSelected] = useState("");
-  const [girdViewActive, setGridViewActive] = useState(true);
-  const [listViewActive, setListViewActive] = useState(false);
-  useEffect(() => {
-    const gridView = document.querySelector(".gridView");
-    const listView = document.querySelector(".listView");
-
-    gridView.addEventListener("click", () => {
-      setListViewActive(false);
-      setGridViewActive(true);
-    });
-    listView.addEventListener("click", () => {
-      setGridViewActive(false);
-      setListViewActive(true);
-    });
-  }, [girdViewActive, listViewActive]);
+  const { girdViewActive, listViewActive } = useViewActive();
 
   return (
     <div className="w-full flex flex-col md:flex-row md:items-center justify-between">
@@ -27,7 +13,7 @@ const ProductBanner = ({ itemsPerPageFromBanner }) => {
                             Left Part Start here
         ======================================================== */}
 
-      <div className="flex items-center gap-4">
+      <div className="hidden md:flex items-center gap-4">
         <span
           className={`${
             girdViewActive

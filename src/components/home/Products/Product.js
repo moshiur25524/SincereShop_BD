@@ -8,10 +8,13 @@ import Badge from "./Badge";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/orebiSlice";
+import useViewActive from "../../../CustomHook/ViewActive/useViewActive";
 
 const Product = (props) => {
   const dispatch = useDispatch();
   const _id = props.productName;
+
+  const { listViewActive } = useViewActive();
   const idString = (_id) => {
     return String(_id).toLowerCase().split(" ").join("");
   };
@@ -26,8 +29,9 @@ const Product = (props) => {
       },
     });
   };
+
   return (
-    <div className="w-full relative group">
+    <div className={`w-full ${listViewActive ? "flex" : "relative"} group`}>
       <div className="max-w-80 max-h-80 relative overflow-y-hidden ">
         <div>
           <Image className="w-full h-full" imgSrc={props.img} />
@@ -82,12 +86,18 @@ const Product = (props) => {
           </ul>
         </div>
       </div>
-      <div className="max-w-80 py-6 flex flex-col gap-1 border-[1px] border-t-0 px-4">
+      <div className="w-full py-6 flex flex-col gap-1 border-[1px] border-t-0 px-4">
         <div className="flex items-center justify-between font-titleFont">
           <h2 className="text-lg text-primeColor font-bold">
             {props.productName}
           </h2>
-          <p className="text-[#767676] text-[14px]">${props.price}</p>
+          <p
+            className={`text-[#767676] text-[14px] md:${
+              listViewActive && "text-3xl"
+            }`}
+          >
+            ${props.price}
+          </p>
         </div>
         <div>
           <p className="text-[#767676] text-[14px]">{props.color}</p>
