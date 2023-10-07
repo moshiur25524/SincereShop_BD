@@ -7,11 +7,11 @@ const useViewActive = () => {
     const gridView = document.querySelector(".gridView");
     const listView = document.querySelector(".listView");
 
-    gridView.addEventListener("click", () => {
+    gridView?.addEventListener("click", () => {
       setListViewActive(false);
       setGridViewActive(true);
     });
-    listView.addEventListener("click", () => {
+    listView?.addEventListener("click", () => {
       setGridViewActive(false);
       setListViewActive(true);
     });
