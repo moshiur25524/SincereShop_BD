@@ -59,7 +59,7 @@ const Pagination = ({ itemsPerPage }) => {
       <div
         className={`grid grid-cols-1  md:${
           listViewActive ? "grid-cols-1" : "grid-cols-2"
-        } xl:${
+        } lg:${listViewActive ? "grid-cols-1" : "grid-cols-3"} xl:${
           listViewActive ? "grid-cols-1" : "grid-cols-3"
         } gap-10 mdl:gap-4 lg:gap-10`}
       >
